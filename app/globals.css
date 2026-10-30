@@ -506,7 +506,7 @@ mark {
 .hero-title {
   font-family: var(--font-display), sans-serif;
   font-weight: 700;
-  font-size: clamp(30px, 8.6vw, 104px);
+  font-size: clamp(30px, 9.6vw, 104px);
   line-height: 0.96;
   letter-spacing: -0.035em;
   margin: 18px 0 0;
@@ -814,6 +814,24 @@ mark {
 }
 .status-row dd {
   margin: 0;
+}
+/* Phones/tablets: let the hero size to its content so the ticker follows the status rows
+   instead of leaving an empty band; keep dots off the body copy. */
+@media (max-width: 959px) {
+  .hero {
+    min-height: 0;
+  }
+  .hero-inner {
+    padding-top: 32px;
+    padding-bottom: 36px;
+  }
+  .hero-status {
+    margin-top: 32px;
+  }
+  .dot-field {
+    -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.22) 60%, #000 100%);
+    mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.22) 60%, #000 100%);
+  }
 }
 @media (min-width: 960px) {
   .hero-inner {
