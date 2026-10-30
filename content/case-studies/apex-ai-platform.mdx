@@ -1,0 +1,52 @@
+## The situation
+
+At RP Tech I worked inside the AI Centre of Excellence as an IT & Digital Transformation intern. Teams across the business relied on SAP reports and spreadsheets for day-to-day answers, and the only AI help on offer was a very basic internal assistant.
+
+## The problem
+
+The data people needed was spread across several reports and files. The existing assistant couldn't reach any of it, so it wasn't much help with real questions about stock, sales or operations.
+
+## Why it mattered
+
+A tool only earns a place in someone's day if it answers their actual questions with their actual data, and if they trust who else can see it.
+
+## Constraints
+
+- It handled real business data, so access control had to be right from the start.
+- Several teams, each with different needs.
+- A fixed internship window (February to May 2026) and a clean handover at the end.
+
+## Investigation and discovery
+
+Before writing code I gathered requirements from each team: what they looked up, how often, and what slowed them down. That shaped which modules came first.
+
+## Approach
+
+Rather than patching the old assistant, I rebuilt and rebranded it as **Apex**: one platform with focused modules, built around the reports people already used.
+
+## Implementation
+
+- SAP report integration, plus inventory and sales modules.
+- Email alerts.
+- Role-based access with admin approval and OTP signup.
+- Tuning for login, response time and stability once people started using it.
+
+I built it with Claude Code.
+
+## Tools and systems
+
+Python, Flask, an AI model, SAP APIs.
+
+## Outcome
+
+- Presented to the MD on 13 April 2026.
+- Live on its own domain from 30 April 2026.
+- Handed over with documentation on 12 May 2026.
+
+## What I learned
+
+Requirements gathering mattered more than the code. Knowing who needed what, and who should see what, decided most of the design.
+
+## What I would improve next
+
+Track which modules and questions get used most, so the next round of work goes where it helps people most.

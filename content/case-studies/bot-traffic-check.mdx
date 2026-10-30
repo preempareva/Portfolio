@@ -1,0 +1,48 @@
+## The situation
+
+Traffic quality checks flag sessions that look like bots. For one campaign, the raw "bad traffic" rate looked alarming.
+
+## The problem
+
+Nobody knew whether that flagged traffic was actually costing money, or only looked bad on paper.
+
+## Why it mattered
+
+If it was a revenue leak, it needed fixing quickly. If it wasn't, a scary number could push the team toward the wrong action.
+
+## Constraints
+
+- Bot-check results and click records live in different places and had to be linked reliably.
+- Campaign, partner and revenue details stay confidential, so this write-up is deliberately generic.
+
+## Investigation and discovery
+
+I joined bot-check results to click records and checked the match quality first: about 99.7% of records matched, high enough to trust the analysis built on top.
+
+Segmenting the suspicious activity showed that crawler re-hits were inflating the "bad" share.
+
+## Approach
+
+Validate the join, then segment, then separate what only inflates a rate from what actually costs money.
+
+## Implementation
+
+- Linked the two sources and measured the match rate.
+- Segmented the flagged activity.
+- Traced the inflated share to crawler re-hits.
+
+## Tools and systems
+
+SQL, Redshift, data quality checks, traffic analysis.
+
+## Outcome
+
+About a 99.7% match rate. Crawler re-hits were inflating the bad share, and there was no revenue leak.
+
+## What I learned
+
+A high "bad" rate is a question, not an answer. Check what the rate is counting before deciding what it means.
+
+## What I would improve next
+
+Report crawler re-hits as their own category so the headline rate doesn't mislead next time.

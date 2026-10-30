@@ -1,0 +1,53 @@
+## The situation
+
+This is a grouped case study. It covers the pattern behind the investigations I've written up at Media.net, not one single project.
+
+## The problem
+
+A funnel metric drops, two reports disagree, or an experiment result looks off. The movement alone never explains what happened.
+
+## Why it mattered
+
+Teams need a cause they can act on and defend, not a guess.
+
+## Constraints
+
+- Not every source is documented, so nothing can be taken on trust, including table names and old notes.
+- Business numbers stay confidential, so this page describes the method rather than the results.
+
+## Investigation and discovery
+
+The same checks come up every time:
+
+- **Is the data fresh?** A table can look right and still be months out of date.
+- **Is the grain what I think it is?** One row per what?
+- **Can the join duplicate or drop rows?**
+- **Do the definitions match** between the two things being compared?
+
+## Approach
+
+1. Check the data is real.
+2. Segment it.
+3. Make several guesses and test each against the data.
+4. Compare the relevant periods or cohorts.
+5. Write it up.
+
+## Implementation
+
+Each write-up records the finding, the likely cause, the impact, the current status and the next step, so anyone can pick it up later.
+
+## Tools and systems
+
+SQL, Tableau, product analytics.
+
+## Outcome
+
+Every investigation ends as a write-up with the likely cause, impact, status and next step, giving teams a clearer basis for action. The running count is in the snapshot above.
+
+## What I learned
+
+How to turn a vague "something looks off" into a root cause, and that checking the data first saves the most time later.
+
+## What I would improve next
+
+Turn the most common checks into reusable queries, so every investigation starts from the same baseline.

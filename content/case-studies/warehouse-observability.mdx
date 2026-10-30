@@ -1,0 +1,44 @@
+## The situation
+
+At Media.net many teams share the same data warehouse for reporting and analysis.
+
+## The problem
+
+There was no structured view of who used the warehouse, where the time went, or when queries queued up.
+
+## Why it mattered
+
+Without that view, slow periods and heavy workloads were hard to explain or plan around.
+
+## Constraints
+
+- Usage data had to stay internal; this write-up stays at a high level on purpose.
+- The dashboard needed to work for people who don't read raw system tables.
+
+## Investigation and discovery
+
+The built-in query history only covered a short default window, too short to show trends over time.
+
+## Approach
+
+Move the reporting onto a persisted dataset so history builds up, then put a dashboard on top that starts with the daily trend.
+
+## Implementation
+
+A query-performance dashboard that shows warehouse usage and query behaviour over time and lets people drill from a daily trend down to the queries behind it.
+
+## Tools and systems
+
+SQL, Redshift, Tableau.
+
+## Outcome
+
+Teams can drill from a daily trend straight to the queries behind it, which wasn't possible before.
+
+## What I learned
+
+Check how much history a source actually keeps before building on it.
+
+## What I would improve next
+
+Add alerting on unusual queueing, so the dashboard flags problems instead of waiting to be opened.

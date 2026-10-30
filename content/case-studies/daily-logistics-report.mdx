@@ -1,0 +1,53 @@
+## The situation
+
+The Imports team sent a logistics status report every day. Each coordinator needed the slice for the brands they handled.
+
+## The problem
+
+Building it took 3–4 hours of manual work daily: filtering large Excel files, mapping coordinators across 60+ brands and emailing people one by one. Doing that by hand every day carried a high risk of errors.
+
+## Why it mattered
+
+Hours of skilled time went into copy-and-paste every day, and a mistake meant someone acting on the wrong numbers.
+
+## Constraints
+
+- Source data arrived as large spreadsheets and SAP extracts.
+- Every coordinator needed their own report, and only theirs.
+- The report had to land reliably every day without anyone babysitting it.
+
+## Investigation and discovery
+
+I mapped the manual routine step by step: which filters were applied, how coordinators were matched to brands, and which cases counted as exceptions, such as clearance delays and missing transit data.
+
+## Approach
+
+Turn the routine into a pipeline: process the data once, apply the same exception rules every time, split by coordinator, and send.
+
+## Implementation
+
+A Python dispatcher that:
+
+- processes the source data,
+- applies the exception rules and builds exception sheets,
+- maps each brand to the right coordinator,
+- creates brand-wise, coordinator-specific reports, and
+- emails them automatically.
+
+## Tools and systems
+
+Python, pandas, openpyxl, SAP API, SMTP.
+
+## Outcome
+
+- 3–4 hours of daily manual work replaced by automated dispatch.
+- Zero manual intervention and consistent daily reports.
+- Tested and production-ready on 16 April 2026.
+
+## What I learned
+
+Write the manual routine down exactly before automating it. Most of the logic was already there in people's heads.
+
+## What I would improve next
+
+Add a simple run log and an alert when a source file is missing or late, so a failure gets noticed before anyone asks for the report.

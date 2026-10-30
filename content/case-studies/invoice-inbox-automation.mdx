@@ -1,0 +1,48 @@
+## The situation
+
+Finance operations received invoice emails from 20+ companies, spread across 24 mailboxes.
+
+## The problem
+
+The inputs were inconsistent: different formats, senders and attachment styles. Sorting and filing them was heavy manual work.
+
+## Why it mattered
+
+Invoices that sit unsorted slow down everything that comes after them, and manual sorting doesn't scale with more companies.
+
+## Constraints
+
+- Inconsistent inputs from many senders.
+- Microsoft 365 tooling the team already used.
+- The finance team had to own and run it after I left.
+
+## Investigation and discovery
+
+My first design was a single central flow that handled every mailbox. It didn't handle the inconsistent inputs reliably: one sender's quirk could break processing for everyone.
+
+## Approach
+
+I redesigned it as independent per-company flows. Each one handles its own sender's format, and a problem in one doesn't stop the rest.
+
+## Implementation
+
+- Power Automate flows, one per company.
+- SharePoint for storage.
+- Structured Outlook folders so the team can see where everything went.
+- Testing and migration before handover.
+
+## Tools and systems
+
+Power Automate, SharePoint, Outlook.
+
+## Outcome
+
+A stable, team-owned setup covering 24 mailboxes, handed over after testing and migration.
+
+## What I learned
+
+When inputs are messy, isolating failures beats one clever central flow. The first design failing taught me more than it cost.
+
+## What I would improve next
+
+A shared monitoring view across all flows, so the team can spot a failing flow at a glance instead of checking each one.
