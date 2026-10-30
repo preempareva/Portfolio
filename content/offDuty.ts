@@ -2,7 +2,7 @@ export const offDutyIntro = {
   eyebrow: "06 / OFF-DUTY",
   before: "Beyond the",
   accent: "dashboards.",
-  intro: "The part of the CV that isn’t on the CV. Poke the cards. (Illustrations for now; real photos go in at build.)",
+  intro: "The part of the CV that isn’t on the CV. Poke the cards.",
 };
 
 export const offDuty = {

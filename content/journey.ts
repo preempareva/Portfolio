@@ -17,12 +17,13 @@ export const journeyIntro = {
 // Oldest → newest.
 export const journey: JourneyNode[] = [
   {
-    meta: ["2022 — 2026 · COLLEGE · B.TECH COMPUTER ENGINEERING", "DWARKADAS J. SANGHVI COLLEGE OF ENGINEERING"],
+    meta: ["2022 — 2026 · B.TECH COMPUTER SCIENCE ENGINEERING", "DWARKADAS J. SANGHVI COLLEGE OF ENGINEERING, MUMBAI"],
     heading: "Built, led, published.",
     workedOn:
-      "Core CS, an IEEE-published paper on decentralized ticketing (HSWTech-2025), and TRINITY, the flagship fest.",
+      "Core CS with IoT, blockchain and cybersecurity, a co-authored paper on blockchain-based event ticketing presented at IEEE HSWTech-2025, and TRINITY, the flagship fest.",
     learned: "Theory gets you started. Real problems involve people, deadlines and incomplete information.",
-    contributed: "As Vice Chairperson I helped lead a festival with 5,000+ attendees.",
+    contributed:
+      "As Vice Chairperson I helped lead a multi-day festival with 5,000+ attendees, working with a 40-member team across sponsorship, logistics and publicity.",
   },
   {
     meta: ["FEB — MAY 2026 · RP TECH INDIA", "(RASHI PERIPHERALS)"],

@@ -13,6 +13,8 @@ export type WorkItem = {
   approach?: string;
   tools: string[];
   context: string;
+  /** What state the work is in, so shipped work and ongoing practice read differently. */
+  status: string;
   approval: Approval;
 };
 
@@ -37,8 +39,9 @@ export const work: WorkItem[] = [
     did: "Rebuilt and rebranded it as Apex with Claude Code: SAP report integration, inventory and sales modules, and email alerts.",
     approach:
       "Gathered requirements from each team first, built role-based access with admin approval and OTP signup, then tuned login, response time and stability.",
-    tools: ["Python", "AI", "SAP APIs"],
-    context: "RP Tech India · Feb — May 2026",
+    tools: ["Python", "Flask", "AI", "SAP APIs"],
+    context: "RP Tech India · AI Centre of Excellence · Feb — May 2026",
+    status: "Shipped · live 30 Apr 2026 · handed over 12 May 2026",
     approval: "approved",
   },
   {
@@ -53,6 +56,7 @@ export const work: WorkItem[] = [
     did: "Built a Python dispatcher to process the source data, map the relevant coordinators, create structured reports and send them automatically. The workflow was production-ready on 16 April 2026.",
     tools: ["Python", "pandas", "openpyxl", "SAP API", "SMTP"],
     context: "RP Tech India · Imports team",
+    status: "Shipped · production-ready 16 Apr 2026",
     approval: "approved",
   },
   {
@@ -67,6 +71,7 @@ export const work: WorkItem[] = [
     did: "Built Power Automate flows with SharePoint and structured Outlook folders. The first central-flow design did not handle inconsistent inputs reliably, so I redesigned it as independent per-company flows and tested the handover.",
     tools: ["Power Automate", "SharePoint", "Outlook"],
     context: "RP Tech India · Finance operations",
+    status: "Shipped · tested, migrated and handed over",
     approval: "approved",
   },
   {
@@ -80,6 +85,7 @@ export const work: WorkItem[] = [
     did: "Built a query-performance dashboard to make warehouse usage and query behavior easier to inspect. Diagnosed that the default history window was too short and moved the reporting to a persisted dataset.",
     tools: ["SQL", "Redshift", "Tableau"],
     context: "Media.net · Data platform",
+    status: "Shipped · dashboard built on a persisted dataset",
     approval: "approved",
   },
   {
@@ -93,6 +99,7 @@ export const work: WorkItem[] = [
     did: "Joined bot-check results to click records, validated the match quality, segmented the suspicious activity and traced the inflated share to crawler re-hits rather than a revenue-impacting issue.",
     tools: ["SQL", "Redshift", "Data quality", "Traffic analysis"],
     context: "Media.net · Traffic quality",
+    status: "Completed investigation",
     approval: "approved",
   },
   {
@@ -107,6 +114,7 @@ export const work: WorkItem[] = [
     did: "Checked definitions, freshness and joins before trusting a number, segmented the data, compared the relevant periods or cohorts, and wrote up what I found so the team had a clearer basis for action.",
     tools: ["SQL", "Tableau", "Product analytics"],
     context: "Media.net · Several investigations, grouped",
+    status: "Ongoing practice · a pattern across many write-ups, not a single project",
     approval: "approved",
   },
 ];

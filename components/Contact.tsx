@@ -12,9 +12,19 @@ export default function Contact() {
     try {
       await navigator.clipboard.writeText(contact.email);
       toast(`Copied ${contact.email}`);
-    } catch {
-      toast(`Couldn’t copy. Email: ${contact.email}`);
-    }
+      return;
+    } catch {}
+    // Fallback for browsers/contexts without the async clipboard API (e.g. plain http).
+    const area = document.createElement("textarea");
+    area.value = contact.email;
+    area.setAttribute("readonly", "");
+    area.style.position = "fixed";
+    area.style.opacity = "0";
+    document.body.appendChild(area);
+    area.select();
+    const ok = document.execCommand("copy");
+    area.remove();
+    toast(ok ? `Copied ${contact.email}` : `Couldn’t copy. Email: ${contact.email}`);
   }
 
   return (

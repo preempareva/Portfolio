@@ -50,7 +50,7 @@ function BikeCard() {
   return (
     <li className={`card od-card od-bike${rolling ? " is-rolling" : ""}`} data-reveal>
       <button type="button" className="od-art" onClick={() => setRolling(true)} aria-label="Roll the bike">
-        <svg viewBox="0 0 320 170" role="img" aria-label="Illustration of a motorcycle">
+        <svg viewBox="0 0 320 170" aria-hidden="true">
           <Wheel cx={80} />
           <Wheel cx={240} />
           <path d="M80 120 L130 80 L200 80 L240 120" fill="none" stroke="currentColor" strokeWidth="5" strokeLinejoin="round" />
@@ -101,7 +101,7 @@ function F1Card() {
             <span key={i} className={`f1-light${lit >= i ? " is-on" : ""}`} />
           ))}
         </span>
-        <svg viewBox="0 0 320 150" role="img" aria-label="Illustration of a Formula 1 car">
+        <svg viewBox="0 0 320 150" aria-hidden="true">
           <path d="M40 100 L110 100 L130 78 L200 70 L250 74 L250 98 L290 98" fill="none" stroke="currentColor" strokeWidth="4" strokeLinejoin="round" />
           <path d="M90 100 L120 74 L170 66 L210 70 L232 92 L120 100 Z" className="fill-red" />
           <rect x="250" y="56" width="26" height="34" fill="none" stroke="currentColor" strokeWidth="4" />
@@ -136,7 +136,7 @@ function TravelCard() {
         onClick={(e) => e.detail === 0 && setX((v) => (v >= 1 ? 0 : Math.min(1, v + 0.2)))}
         aria-label="Move along the route"
       >
-        <svg viewBox="0 0 320 170" role="img" aria-label="Illustration of mountains with a route">
+        <svg viewBox="0 0 320 170" aria-hidden="true">
           <path d="M20 150 L90 80 L120 110 L170 40 L240 120 L300 150 Z" fill="none" stroke="currentColor" strokeWidth="4" strokeLinejoin="round" />
           <path d="M40 140 Q110 110 150 100 T270 40" fill="none" className="stroke-red" strokeWidth="3" strokeDasharray="6 7" />
           <circle cx="250" cy="34" r="13" className="fill-red" style={{ transform: `translate(${(x - 0.5) * 24}px, ${(0.5 - x) * 10}px)` }} />

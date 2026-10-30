@@ -16,7 +16,8 @@ export default function Intro() {
     try {
       sessionStorage.setItem("intro-seen", "1");
     } catch {}
-    if (document.documentElement.classList.contains("intro-seen")) return;
+    const root = document.documentElement;
+    if (root.classList.contains("intro-seen")) return;
     const start = performance.now();
     let raf = 0;
     const tick = (t: number) => {
@@ -25,7 +26,12 @@ export default function Intro() {
       if (k < 1) raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+    // Once it has played, mark it seen so client-side navigation back to "/" doesn't replay it.
+    const done = window.setTimeout(() => root.classList.add("intro-seen"), 2700);
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(done);
+    };
   }, []);
 
   return (

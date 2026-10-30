@@ -6,6 +6,7 @@ const withMDX = createMDX({});
 const nextConfig = {
   pageExtensions: ["ts", "tsx", "md", "mdx"],
   reactStrictMode: true,
+  poweredByHeader: false,
 };
 
 export default withMDX(nextConfig);
