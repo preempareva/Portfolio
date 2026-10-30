@@ -7,6 +7,8 @@ Next.js 15 (App Router) + TypeScript + Tailwind v4 + MDX. Single-page portfolio 
 Requires Node 20+.
 
 ```bash
+git clone https://github.com/preempareva/Portfolio.git
+cd Portfolio
 npm install
 npm run dev        # http://localhost:3000
 npm run typecheck  # tsc --noEmit
