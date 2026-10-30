@@ -28,3 +28,9 @@ Every stat, work card and the resume button has an `approval` field. Set it to `
 - Degree label: the site uses the resume's "B.Tech Computer Engineering", not the spec's "B.E.".
 - Real Off-duty photos (illustrations for now).
 - GitHub link (left out, none supplied).
+
+
+git clone https://github.com/preempareva/Portfolio.git
+cd Portfolio
+npm install
+npm run dev        # http://localhost:3000
