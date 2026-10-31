@@ -1,11 +1,15 @@
 import type { Approval } from "@/lib/flags";
 
-// Explicit URL first, then Vercel's production domain (set automatically at build), then the
-// per-deployment URL, so canonical/OG/sitemap never point at localhost on Vercel.
+const PRODUCTION_URL = "https://preempareva.vercel.app";
+
+// Explicit URL first, then the real production domain for production deploys (Vercel's
+// VERCEL_PROJECT_PRODUCTION_URL can be an auto-generated alias), then the per-deployment URL
+// for previews, so canonical/OG/sitemap never point at localhost on Vercel.
 function resolveSiteUrl(): string {
   const explicit = process.env.NEXT_PUBLIC_SITE_URL;
   if (explicit) return explicit;
-  const vercel = process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL;
+  if (process.env.VERCEL_ENV === "production") return PRODUCTION_URL;
+  const vercel = process.env.VERCEL_URL ?? process.env.VERCEL_PROJECT_PRODUCTION_URL;
   if (vercel) return `https://${vercel}`;
   return "http://localhost:3000";
 }
@@ -97,8 +101,8 @@ export const site = {
     accent: "something.",
     body: "Hiring, building, or just good AdTech chat? I reply fast. (And yes, an MBA is on the horizon, so I’m always up for career talk.)",
     email: "prempareva12@gmail.com",
-    // Handle taken from the resume header; confirm the full URL before launch.
-    linkedin: "https://www.linkedin.com/in/preempareva",
+    // Taken from the link embedded in the resume PDF.
+    linkedin: "https://www.linkedin.com/in/preem-pareva-20240217b/",
     resume: {
       href: "/Preem_Pareva_Resume.pdf",
       approval: "approved" as Approval,
